@@ -984,7 +984,9 @@ omit =
     homeassistant/components/sms/*
     homeassistant/components/smtp/notify.py
     homeassistant/components/snapcast/*
-    homeassistant/components/snmp/*
+    homeassistant/components/snmp/const.py
+    homeassistant/components/snmp/device_tracker.py
+    homeassistant/components/snmp/switch.py
     homeassistant/components/sochain/sensor.py
     homeassistant/components/solaredge/__init__.py
     homeassistant/components/solaredge/coordinator.py
