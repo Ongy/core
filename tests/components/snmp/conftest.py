@@ -24,7 +24,7 @@ def config_addon():
 @pytest.fixture
 def mock_getcmd(get_value):
     """Fixture to allow mocking the pysnmp getCmd call."""
-    print(get_value)
+    print(get_value, id(get_value))
 
     async def replace_with(a, b, c, d, e):
         class MockValue:
@@ -35,10 +35,11 @@ def mock_getcmd(get_value):
                 return str(self._value)
 
         key = e._ObjectType__args[0]._ObjectIdentity__args[0]
-        print(key, get_value)
+        print(key, get_value, id(get_value))
         return (None, None, None, [[1, MockValue(get_value[key])]])
 
     with patch("pysnmp.hlapi.asyncio.getCmd", replace_with):
+        print(get_value, id(get_value))
         yield
 
 
