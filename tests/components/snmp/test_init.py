@@ -145,7 +145,7 @@ async def test_reloadable_stops_on_invalid_config(hass, start_ha):
 )
 @pytest.mark.parametrize(
     "get_value",
-    [{"1.3.6.1.4.1.3808.1.1.1.4.2.5.0": "1", "1.3.6.1.4.1.3808.1.1.1.4.2.5.1": "2"}],
+    [{"1.3.6.1.4.1.3808.1.1.1.4.2.5.0": "8", "1.3.6.1.4.1.3808.1.1.1.4.2.5.1": "9"}],
 )
 async def test_reloadable_handles_partial_valid_config(hass, start_ha):
     """Test we can still setup valid sensors when configuration.yaml has a broken entry."""
