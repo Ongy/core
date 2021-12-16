@@ -21,10 +21,10 @@ from homeassistant.components.snmp import DOMAIN
         },
     ],
 )
-@pytest.mark.parametrize("get_value", [{"1.3.6.1.4.1.3808.1.1.1.4.2.5.0": "1"}])
+@pytest.mark.parametrize("get_value", [{"1.3.6.1.4.1.3808.1.1.1.4.2.5.0": "3"}])
 async def test_basic(hass, start_ha):
     """Test that we can reload."""
-    assert hass.states.get("sensor.test_oid").state == "1"
+    assert hass.states.get("sensor.test_oid").state == "3"
     assert len(hass.states.async_all()) == 1
 
 
@@ -45,7 +45,7 @@ async def test_basic(hass, start_ha):
         },
     ],
 )
-@pytest.mark.parametrize("get_value", [{"1.3.6.1.4.1.3808.1.1.1.4.2.5.0": "1"}])
+@pytest.mark.parametrize("get_value", [{"1.3.6.1.4.1.3808.1.1.1.4.2.5.0": "4"}])
 async def test_template(hass, start_ha):
     """Test that we can reload."""
-    assert hass.states.get("sensor.test_oid").state == "100"
+    assert hass.states.get("sensor.test_oid").state == "400"
