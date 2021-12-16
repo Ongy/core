@@ -119,12 +119,12 @@ async def test_reloadable_can_change_oid(hass, start_ha):
 @pytest.mark.parametrize("get_value", [{"1.3.6.1.4.1.3808.1.1.1.4.2.5.0": "2"}])
 async def test_reloadable_stops_on_invalid_config(hass, start_ha):
     """Test we stop the reload if configuration.yaml is completely broken."""
-    assert hass.states.get("sensor.test_oid").state == "1"
-    assert len(hass.states.async_all()) == 2
+    assert hass.states.get("sensor.test_oid").state == "2"
+    assert len(hass.states.async_all()) == 1
 
     await async_yaml_patch_helper(hass, "configuration.yaml.corrupt")
-    assert hass.states.get("sensor.test_oid").state == "1"
-    assert len(hass.states.async_all()) == 2
+    assert hass.states.get("sensor.test_oid").state == "2"
+    assert len(hass.states.async_all()) == 1
 
 
 @pytest.mark.parametrize("count,domain", [(1, "sensor")])
