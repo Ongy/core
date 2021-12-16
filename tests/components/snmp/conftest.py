@@ -34,6 +34,7 @@ def mock_getcmd(get_value):
                 return str(self._value)
 
         key = e._ObjectType__args[0]._ObjectIdentity__args[0]
+        print(key, get_value)
         return (None, None, None, [[1, MockValue(get_value[key])]])
 
     with patch("pysnmp.hlapi.asyncio.getCmd", replace_with):
