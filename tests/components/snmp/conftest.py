@@ -24,6 +24,7 @@ def config_addon():
 @pytest.fixture
 def mock_getcmd(get_value):
     """Fixture to allow mocking the pysnmp getCmd call."""
+    print(get_value)
 
     async def replace_with(a, b, c, d, e):
         class MockValue:
