@@ -66,7 +66,7 @@ class _TrackCronIterator:
         self._cancel_callback = async_track_point_in_utc_time(
             self.hass,
             self._pattern_time_change_listener_job,
-            self._calculate_next(dt_util.utcnow()),
+            self._calculate_next(dt_util.now()),
         )
 
     def _calculate_next(self, start: datetime) -> datetime:
@@ -78,7 +78,7 @@ class _TrackCronIterator:
         hass = self.hass
         # Fetch time again because we want the actual time, not the
         # time when the timer was scheduled
-        utc_now = dt_util.utcnow()
+        utc_now = dt_util.now()
         localized_now = dt_util.as_local(utc_now)
         if TYPE_CHECKING:
             assert self._pattern_time_change_listener_job is not None
